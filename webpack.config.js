@@ -8,14 +8,19 @@ module.exports = (env, argv) => {
 
   return {
     mode: isProduction ? 'production' : 'development',
-    devtool: isProduction ? false : 'source-map',
+    devtool: false,
     entry: {
-      admin: './assets/js/admin/index.js',
-      editor: './assets/js/editor/index.js'
+      customizer: './js/customizer.js',
+      navigation: './js/navigation.js',
+      styles: './js/styles.js'
     },
     output: {
-      filename: '[name].min.js',
-      path: path.resolve(__dirname, 'assets/dist/js')
+      filename: (pathData) => {
+        return pathData.chunk.name === 'styles'
+          ? '../noop.js' // optional dummy file, or filter out manually
+          : '[name].min.js'
+      },
+      path: path.resolve(__dirname, 'js')
     },
     module: {
       rules: [

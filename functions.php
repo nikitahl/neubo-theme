@@ -141,7 +141,7 @@ function neubo_scripts() {
 	wp_enqueue_style( 'neubo-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'neubo-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'neubo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'neubo-navigation', get_template_directory_uri() . '/js/navigation.min.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -176,3 +176,13 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function enqueue_neubo_assets() {
+	// Enqueue your new built CSS file from /css/styles.min.css
+	wp_enqueue_style(
+		'neubo-main-styles',
+		get_template_directory_uri() . '/css/styles.min.css',
+		[],
+		filemtime(get_template_directory() . '/css/styles.min.css') // For cache busting
+	);
+}
+add_action('wp_enqueue_scripts', 'enqueue_neubo_assets');

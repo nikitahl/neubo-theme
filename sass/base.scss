@@ -1,0 +1,74 @@
+html {
+  --document-bg-color: #fcefe4;
+  --body-bg-color: #faf5f3;
+  --main-color: #333;
+  --main-border-radius: 15px;
+  --round-border-radius: 50px;
+  --main-border: 2px solid var(--main-color);
+  --box-shadow: 5px 5px 0 0 var(--main-color);
+  --box-shadow-hover: 0 0 0 0 var(--main-color);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+
+  background: var(--document-bg-color);
+}
+
+body {
+  margin: 20px;
+  padding: 20px;
+  border: var(--main-border);
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--box-shadow);
+  background: var(--body-bg-color);
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+a,
+a:visited {
+  color: var(--main-color);
+}
+
+a:hover,
+a:focus {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+button {
+  border: var(--main-border);
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 10px;
+  background: #fff;
+  font-size: 1rem;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+button {
+  padding: 10px 20px;
+}
+
+button:hover {
+  background: #fff;
+  border: var(--main-border);
+}
+
